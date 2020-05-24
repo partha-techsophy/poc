@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="demoApp">
+
+<head>
+    <title>Magic AI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.14.4/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.14.4/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.14.4/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.14.4/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.14.4/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body class="fuelux" ng-controller="WizardController">
+    <div class="container" >
+        <div class="well" wizard="stepCurrent" >
+            <div class="wizard" style="width:100%">
+                <ul class="steps">
+                    <li>Step 1
+                        <br> Instructions <span class="chevron"></span></li>
+                    <li>Step 2
+                        <br> Sample Image <span class="chevron"></span></li>
+                    <li>Step 3
+                        <br> Upload file <span class="chevron"></span></li>
+                </ul>
+            </div>
+            <div class="vnMainLayout-Steps">
+                <div class="step-content ui-layout-center" style="background: #FFFFFF" class="step-content ui-layout-center ui-layout-pane ui-layout-pane-center">
+                    <div class="step-pane">
+                        <div class="auth-box card m-t-10">
+                            <div class="card-block mx-auto" style="width: 95%; overflow: auto;">
+                                <h5 class="text-center">Guidelines for the Image</h3>
+                                <h6>A. Background :</h6>
+                                <p class="ml-4">
+                                    1. Plain background such as white, black, etc.
+                                </p>
+                                <p class="ml-4">                                    
+                                    2. Back-ground and reference/package color should be different.
+                                </p>
+                                <h6>B. Object positioning :</h6>
+                                <p class="ml-4">
+                                    1. Package should be placed on the right side of the referenced object.
+                                </p>
+                                <h6>C. Camera Positioning :</h6>
+                                <p class="ml-4">
+                                    1. 90 degree from object i.e. top-view.
+                                </p>
+                                <h6>D. Image Clarity :</h6>
+                                <p class="ml-4">
+                                    1. Image should contain only the package and reference object, all other should be cropped.
+                                </p>
+                            </div>
+                            <div class="card-header">
+                                <div class="col-md-12">
+                                    <button class="btn btn-sm btn-primary float-right" type="button" ng-click="nextStep('1')">Next</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-pane">
+                        <div class="auth-box card m-t-10">
+                            <div class="card-block" style="height:100%">
+                                <!-- Indicators -->
+                                <div id="demo" class="carousel slide" data-ride="carousel">
+                                    <ul class="carousel-indicators" }" >
+                                        <li data-target="#demo" ng-repeat="slide in slides track by $index" data-slide-to="{{$index}}" ng-class="{'active':slide.active}"></li>
+                                        <!-- <li data-target="#demo" data-slide-to="1"></li>
+                                        <li data-target="#demo" data-slide-to="2"></li>
+                                        <li data-target="#demo" data-slide-to="3"></li>
+                                        <li data-target="#demo" data-slide-to="4"></li>
+                                        <li data-target="#demo" data-slide-to="5"></li> -->
+                                    </ul>
+                                    <!-- The slideshow -->
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item " ng-class="{'active':slide.active}" ng-repeat="slide in slides track by $index">
+                                            <img ng-src="{{slide.image}}" alt="Los Angeles" width="400" height="200">
+                                            <div class="carousel-caption d-md-block">
+                                                <h5>{{slide.title}}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Left and right controls -->
+                                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-header">
+                                <div class="col-md-12">
+                                    <button class="btn btn-sm btn-primary float-left" type="button" ng-click="nextStep('0')">Previous</button>
+                                </div>
+                                <button class="btn btn-sm btn-primary float-right" type="button" ng-click="nextStep('2')">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-pane">
+                        <div class="auth-box card m-t-10">
+                            <div class="card-block">
+                                <div class="col-md-12" style="position:relative;top:10%;">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile04" onchange="angular.element(this).scope().uploadFile(this.files)">
+                                            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-header">
+                                <div class="col-md-12">
+                                    <button class="btn btn-sm btn-primary float-left" type="button" ng-click="nextStep('1')">Previous</button>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+@media (min-width: 1200px) {
+    .carousel-inner {
+        height: 500px !important;
+
+    }
+}
+
+.fuelux .wizard {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    *zoom: 1;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+
+.fuelux .wizard:before,
+.fuelux .wizard:after {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.fuelux .wizard:after {
+    clear: both;
+}
+
+.fuelux .wizard ul {
+    padding: 0;
+    margin: 0;
+    list-style: none outside none;
+    overflow: hidden;
+}
+
+.fuelux .wizard ul li {
+    position: relative;
+    float: left;
+    height: 60px;
+    padding: 0 5px 0 20px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 30px !important;
+    color: #999999;
+    cursor: default;
+    background: #ededed;
+    width: 32.5%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.fuelux .wizard ul li .chevron {
+    position: absolute;
+    top: 50%;
+    right: -14px;
+    display: block;
+    border: 24px solid transparent;
+    border-right: 0;
+    border-left: 20px solid #fff;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    margin-top: -50px;
+}
+
+.fuelux .wizard ul li .chevron:before {
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    display: block;
+    /* border: 24px solid transparent; */
+    border-right: 0;
+    border-left: 20px solid #ededed;
+    content: "";
+    border-bottom: 50px solid transparent;
+    border-top: 50px solid transparent;
+    margin-top: -50px;
+}
+
+.fuelux .wizard ul li.complete {
+    color: #fff;
+    background: #5cd04f;
+    border-color: #5cd04f;
+}
+
+.fuelux .wizard ul li.complete:hover {
+    cursor: pointer;
+    background: #e7eff8;
+}
+
+.fuelux .wizard ul li.complete:hover .chevron:before {
+    border-left: 20px solid #e7eff8;
+}
+
+.fuelux .wizard ul li.complete .chevron:before {
+    border-left: 20px solid #5cd04f;
+}
+
+.fuelux .wizard ul li.active {
+    color: #fff;
+    background: #00bcd4;
+    border-color: #00bcd4;
+}
+
+.fuelux .wizard ul li.active .chevron:before {
+    border-left: 20px solid #00bcd4;
+}
+
+.fuelux .wizard ul li .badge {
+    margin-right: 8px;
+}
+
+.fuelux .wizard ul li:nth-child(1) {
+    z-index: 10;
+    padding-left: 20px;
+    border-radius: 4px 0 0 4px;
+}
+
+.fuelux .wizard ul li:nth-child(2) {
+    z-index: 9;
+}
+
+.fuelux .wizard ul li:nth-child(3) {
+    z-index: 8;
+}
+
+.fuelux .wizard ul li:nth-child(4) {
+    z-index: 7;
+}
+
+.fuelux .wizard ul li:nth-child(5) {
+    z-index: 6;
+}
+
+.fuelux .wizard ul li:nth-child(6) {
+    z-index: 5;
+}
+
+.fuelux .wizard ul li:nth-child(7) {
+    z-index: 4;
+}
+
+.fuelux .wizard ul li:nth-child(8) {
+    z-index: 3;
+}
+
+.fuelux .wizard ul li:nth-child(9) {
+    z-index: 2;
+}
+
+.fuelux .wizard ul li:nth-child(10) {
+    z-index: 1;
+}
+
+.fuelux .wizard .actions {
+    float: right;
+    padding-right: 15px;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.fuelux .wizard .actions a {
+    margin-right: 8px;
+    font-size: 12px;
+    line-height: 45px;
+}
+
+.fuelux .wizard .actions .btn-prev i {
+    margin-right: 5px;
+}
+
+.fuelux .wizard .actions .btn-next i {
+    margin-left: 5px;
+}
+
+.fuelux .step-content {
+    padding: 5px 0px 0px 0px !important;
+    height: auto !important;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative !important;
+    background-color: transparent !important;
+}
+
+.fuelux .step-content .step-pane {
+    display: none;
+    padding: 0px 0px;
+}
+
+.fuelux .bottom-prev-next {
+    padding: 5px 20px;
+}
+
+.fuelux .bottom-prev-next button {
+    margin-left: 2px;
+}
+
+.fuelux .step-content .active {
+    display: block;
+}
+
+.fuelux .step-content .active .btn-group .active {
+    display: inline-block;
+}
+
+.card-header {
+    background-color: #fff !important;
+    border-bottom: 0px !important;
+
+
+}
+
+.auth-box .card-block {
+    height: 330px;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    margin: auto;
+    width: 400px;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.carousel-inner {
+    height: 100%;
+    width: 100%;
+}
