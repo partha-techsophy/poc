@@ -100,12 +100,12 @@ app.controller('WizardController', ['$scope', '$timeout', function($scope,$timeo
             title: 'Do\'s'
         },
         {
-            image: './img/dos/Re1_watch.png',
+            image: './img/dos/Re1_watch.jpeg',
             active: false,
             title: 'Do\'s'
         },
         {
-            image: './img/dos/Re1_watch_box.png',
+            image: './img/dos/Re1_watch_box.jpeg',
             active: false,
             title: 'Do\'s'
         },
