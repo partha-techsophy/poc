@@ -85,7 +85,7 @@
                                     <!-- The slideshow -->
                                     <div class="carousel-inner">
                                         <div class="carousel-item " ng-class="{'active':slide.active}" ng-repeat="slide in slides track by $index">
-                                            <img ng-src="{{slide.image}}" alt="Los Angeles" width="400" height="200">
+                                            <img ng-src="{{slide.image}}" alt="Image" width="400" height="200">
                                             <div class="carousel-caption d-md-block">
                                                 <h5>{{slide.title}}</h5>
                                             </div>
@@ -111,10 +111,13 @@
                     <div class="step-pane">
                         <div class="auth-box card m-t-10">
                             <div class="card-block">
+                                <div class="spinner" ng-show="loading">
+                                    <div class="loader" ></div>
+                                </div>
                                 <div class="col-md-12" style="position:relative;top:10%;">
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="inputGroupFile04" onchange="angular.element(this).scope().uploadFile(this.files)">
+                                            <input type="file" class="custom-file-input" ng-model="fileModel"  id="inputGroupFile04" onchange="angular.element(this).scope().uploadFile(this.files)">
                                             <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
                                         </div>
                                     </div>

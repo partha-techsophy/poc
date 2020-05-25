@@ -82,11 +82,12 @@ app.directive('wizard', ['$compile', '$parse', function($compile, $parse) {
     };
 }]);
 
-app.controller('WizardController', ['$scope', '$interval', function($scope, $interval) {
+app.controller('WizardController', ['$scope', '$timeout', function($scope,$timeout) {
     $scope.stepCurrent = 0;
     $scope.nextStep = function(step) {
         $scope.stepCurrent = step;
     }
+    $scope.loading=false;
     $scope.myInterval = 5000;
     $scope.slides = [{
             image: './img/dos/A4_book.jpeg',
@@ -166,9 +167,15 @@ app.controller('WizardController', ['$scope', '$interval', function($scope, $int
       
       //dynamically set reference to the file name
       var thisRef = storageRef.child(file.name);
+      $timeout(function(){  
+            $scope.loading=true;    
+          })
 
       //put request upload file to firebase storage
       thisRef.put(file).then(function(snapshot) {
+        $timeout(function(){    
+            $scope.loading=false;   
+          })
          alert("Upload complete.")
       });
     }
