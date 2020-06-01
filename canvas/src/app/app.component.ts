@@ -31,9 +31,9 @@ export class AppComponent {
             }).scale(1);
             oImg.scaleToHeight(canvas.getHeight())
             oImg.scaleToWidth(canvas.getWidth())
-            canvas.add(oImg);
-            canvas.freeDrawingBrush.color="rgba(255,0,0,.5)";
-            canvas.freeDrawingBrush.width = 25;
+            canvas.add(oImg);            
+            canvas.freeDrawingBrush.color="#f00";
+            canvas.freeDrawingBrush.width = 20;
           });
 
           // fabric js code with angle for image
