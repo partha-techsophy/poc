@@ -31,8 +31,10 @@
                     <li>Step 1
                         <br> Instructions <span class="chevron"></span></li>
                     <li>Step 2
-                        <br> Sample Image <span class="chevron"></span></li>
+                        <br> Reference object <span class="chevron"></span></li>
                     <li>Step 3
+                        <br> Sample Image <span class="chevron"></span></li>
+                    <li>Step 4
                         <br> Upload file <span class="chevron"></span></li>
                 </ul>
             </div>
@@ -49,15 +51,19 @@
                                 <p class="ml-4">                                    
                                     2. Back-ground and reference/package color should be different.
                                 </p>
-                                <h6>B. Object positioning :</h6>
+                                <h6>B. Reference object :</h6>
+                                <p class="ml-4">
+                                    1. Reference objects should be one of the following, a U.S. Quarter or a Standard business card or a U.S. Dollar Bill or a Standard sheet of paper (8.5 inch x11.5 inch)
+                                </p>
+                                <h6>C. Object positioning :</h6>
                                 <p class="ml-4">
                                     1. Package should be placed on the right side of the referenced object.
                                 </p>
-                                <h6>C. Camera Positioning :</h6>
+                                <h6>D. Camera Positioning :</h6>
                                 <p class="ml-4">
                                     1. 90 degree from object i.e. top-view.
                                 </p>
-                                <h6>D. Image Clarity :</h6>
+                                <h6>E. Image Clarity :</h6>
                                 <p class="ml-4">
                                     1. Image should contain only the package and reference object, all other should be cropped.
                                 </p>
@@ -72,15 +78,54 @@
                     <div class="step-pane">
                         <div class="auth-box card m-t-10">
                             <div class="card-block" style="height:100%">
+                                <div class="row" style="background-color: #FAF9F3;">
+                                    <div class="col-6">
+                                        <img src="./img/ref1.png" alt="Reference object" style="width: 100%;">
+                                    </div>                                    
+                                    <div class="col-6">
+                                        <img src="./img/ref2.png" alt="Reference object" style="width: 100%;">
+                                    </div>                            
+                                </div>
+                                <div class="row" style="background-color: #FAF9F3;">
+                                    <div class="col-6">
+                                        <p class="text-center"><input type="radio" name="ref" /> &nbsp; U.S. Quarter </p>
+                                    </div>                                    
+                                    <div class="col-6">
+                                        <p class="text-center"><input type="radio" name="ref" /> &nbsp; U.S. Dollar Bill</p>
+                                    </div>                            
+                                </div>
+                                <div class="row" style="background-color: #FAF9F3;">
+                                    <div class="col-6">
+                                        <img src="./img/ref3.png" alt="Reference object" style="width: 100%;">
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="./img/ref4.png" alt="Reference object" style="width: 100%;">
+                                    </div>                            
+                                </div>
+                                <div class="row" style="background-color: #FAF9F3;">
+                                    <div class="col-6">
+                                        <p class="text-center"><input type="radio" name="ref" /> &nbsp; Standrad sheet of paper 8.5 inch x 11 inch </p>
+                                    </div>                                    
+                                    <div class="col-6">
+                                        <p class="text-center"><input type="radio" name="ref" /> &nbsp; Standrad business card (3.4 inch x 2 inch</p>
+                                    </div>                            
+                                </div>
+                            </div>
+                            <div class="card-header">
+                                <div class="col-md-12">
+                                    <button class="btn btn-sm btn-primary float-left" type="button" ng-click="nextStep('0')">Previous</button>
+                                </div>
+                                <button class="btn btn-sm btn-primary float-right" type="button" ng-click="nextStep('2')">Next</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-pane">
+                        <div class="auth-box card m-t-10">
+                            <div class="card-block" style="height:100%">
                                 <!-- Indicators -->
                                 <div id="demo" class="carousel slide" data-ride="carousel">
                                     <ul class="carousel-indicators" }" >
                                         <li data-target="#demo" ng-repeat="slide in slides track by $index" data-slide-to="{{$index}}" ng-class="{'active':slide.active}"></li>
-                                        <!-- <li data-target="#demo" data-slide-to="1"></li>
-                                        <li data-target="#demo" data-slide-to="2"></li>
-                                        <li data-target="#demo" data-slide-to="3"></li>
-                                        <li data-target="#demo" data-slide-to="4"></li>
-                                        <li data-target="#demo" data-slide-to="5"></li> -->
                                     </ul>
                                     <!-- The slideshow -->
                                     <div class="carousel-inner">
@@ -102,9 +147,9 @@
                             </div>
                             <div class="card-header">
                                 <div class="col-md-12">
-                                    <button class="btn btn-sm btn-primary float-left" type="button" ng-click="nextStep('0')">Previous</button>
+                                    <button class="btn btn-sm btn-primary float-left" type="button" ng-click="nextStep('1')">Previous</button>
                                 </div>
-                                <button class="btn btn-sm btn-primary float-right" type="button" ng-click="nextStep('2')">Next</button>
+                                <button class="btn btn-sm btn-primary float-right" type="button" ng-click="nextStep('3')">Next</button>
                             </div>
                         </div>
                     </div>
@@ -114,7 +159,10 @@
                                 <div class="spinner" ng-show="loading">
                                     <div class="loader" ></div>
                                 </div>
-                                <div class="col-md-12" style="position:relative;top:10%;">
+                                <div class="col-md-12">
+                                    <img src="./img/top.png" class="mx-auto d-block" alt="Top" style="width: 60%;">
+                                </div>
+                                <div class="col-md-12" style="position:relative;top:2%;">
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" ng-model="fileModel"  id="inputGroupFile04" onchange="angular.element(this).scope().uploadFile(this.files)">
@@ -122,10 +170,21 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-md-12 m-t-2" style="position:relative;top:4%;">
+                                    <img src="./img/side.png" class="mx-auto d-block img-fluid" alt="Side"  style="width: 60%;">
+                                </div>
+                                <div class="col-md-12" style="position:relative;top:4%;">
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" ng-model="fileModel"  id="inputGroupFile05" onchange="angular.element(this).scope().uploadFile(this.files)">
+                                            <label class="custom-file-label" for="inputGroupFile05">Choose file</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-header">
                                 <div class="col-md-12">
-                                    <button class="btn btn-sm btn-primary float-left" type="button" ng-click="nextStep('1')">Previous</button>
+                                    <button class="btn btn-sm btn-primary float-left" type="button" ng-click="nextStep('2')">Previous</button>
                                    
                                 </div>
                             </div>
